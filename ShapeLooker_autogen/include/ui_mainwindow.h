@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
@@ -24,6 +25,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QToolButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "shapelookergraphicsview.h"
@@ -44,8 +46,8 @@ public:
     QAction *actionPenTool;
     QAction *actionPanTool;
     QWidget *centralwidget;
+    QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_4;
-    QHBoxLayout *horizontalLayout_3;
     QGridLayout *gridLayout;
     QLabel *label;
     QComboBox *comboSpace;
@@ -60,7 +62,18 @@ public:
     QSpacerItem *verticalSpacer_2;
     QFrame *line;
     QVBoxLayout *verticalLayout;
-    QLabel *label_6;
+    QHBoxLayout *horizontalLayout_3;
+    QSpacerItem *horizontalSpacer_4;
+    QHBoxLayout *horizontalLayout;
+    QToolButton *toolSelect;
+    QToolButton *toolPan;
+    QToolButton *toolErase;
+    QToolButton *toolLine;
+    QToolButton *toolRect;
+    QToolButton *toolCircleCenter;
+    QToolButton *toolCircleCorner;
+    QToolButton *toolPen;
+    QSpacerItem *horizontalSpacer_3;
     ShapeLookerGraphicsView *graphicsView;
     QLabel *labelTool;
     QHBoxLayout *horizontalLayout_2;
@@ -101,10 +114,10 @@ public:
         actionPanTool->setObjectName("actionPanTool");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        horizontalLayout_4 = new QHBoxLayout(centralwidget);
+        verticalLayout_2 = new QVBoxLayout(centralwidget);
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName("horizontalLayout_4");
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName("horizontalLayout_3");
         gridLayout = new QGridLayout();
         gridLayout->setObjectName("gridLayout");
         label = new QLabel(centralwidget);
@@ -174,25 +187,98 @@ public:
         gridLayout->addItem(verticalSpacer_2, 5, 0, 1, 2);
 
 
-        horizontalLayout_3->addLayout(gridLayout);
+        horizontalLayout_4->addLayout(gridLayout);
 
         line = new QFrame(centralwidget);
         line->setObjectName("line");
         line->setFrameShape(QFrame::Shape::VLine);
         line->setFrameShadow(QFrame::Shadow::Sunken);
 
-        horizontalLayout_3->addWidget(line);
+        horizontalLayout_4->addWidget(line);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName("verticalLayout");
-        label_6 = new QLabel(centralwidget);
-        label_6->setObjectName("label_6");
-        QFont font1;
-        font1.setPointSize(15);
-        label_6->setFont(font1);
-        label_6->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
-        verticalLayout->addWidget(label_6);
+        horizontalLayout_3->addItem(horizontalSpacer_4);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        toolSelect = new QToolButton(centralwidget);
+        toolSelect->setObjectName("toolSelect");
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/assets/cursor.png"), QSize(), QIcon::Mode::Selected, QIcon::State::On);
+        toolSelect->setIcon(icon);
+
+        horizontalLayout->addWidget(toolSelect);
+
+        toolPan = new QToolButton(centralwidget);
+        toolPan->setObjectName("toolPan");
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/assets/grab.png"), QSize(), QIcon::Mode::Selected, QIcon::State::On);
+        toolPan->setIcon(icon1);
+
+        horizontalLayout->addWidget(toolPan);
+
+        toolErase = new QToolButton(centralwidget);
+        toolErase->setObjectName("toolErase");
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/assets/erase.png"), QSize(), QIcon::Mode::Selected, QIcon::State::On);
+        toolErase->setIcon(icon2);
+
+        horizontalLayout->addWidget(toolErase);
+
+        toolLine = new QToolButton(centralwidget);
+        toolLine->setObjectName("toolLine");
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/assets/line.png"), QSize(), QIcon::Mode::Selected, QIcon::State::On);
+        toolLine->setIcon(icon3);
+
+        horizontalLayout->addWidget(toolLine);
+
+        toolRect = new QToolButton(centralwidget);
+        toolRect->setObjectName("toolRect");
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/assets/rect.png"), QSize(), QIcon::Mode::Selected, QIcon::State::On);
+        toolRect->setIcon(icon4);
+
+        horizontalLayout->addWidget(toolRect);
+
+        toolCircleCenter = new QToolButton(centralwidget);
+        toolCircleCenter->setObjectName("toolCircleCenter");
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8(":/assets/centercircle.png"), QSize(), QIcon::Mode::Selected, QIcon::State::On);
+        toolCircleCenter->setIcon(icon5);
+
+        horizontalLayout->addWidget(toolCircleCenter);
+
+        toolCircleCorner = new QToolButton(centralwidget);
+        toolCircleCorner->setObjectName("toolCircleCorner");
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/assets/ellipse.png"), QSize(), QIcon::Mode::Selected, QIcon::State::On);
+        toolCircleCorner->setIcon(icon6);
+
+        horizontalLayout->addWidget(toolCircleCorner);
+
+        toolPen = new QToolButton(centralwidget);
+        toolPen->setObjectName("toolPen");
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8(":/assets/pen.png"), QSize(), QIcon::Mode::Selected, QIcon::State::On);
+        toolPen->setIcon(icon7);
+
+        horizontalLayout->addWidget(toolPen);
+
+
+        horizontalLayout_3->addLayout(horizontalLayout);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer_3);
+
+
+        verticalLayout->addLayout(horizontalLayout_3);
 
         graphicsView = new ShapeLookerGraphicsView(centralwidget);
         graphicsView->setObjectName("graphicsView");
@@ -228,17 +314,16 @@ public:
 
         verticalLayout->addItem(verticalSpacer);
 
-        verticalLayout->setStretch(1, 3);
 
-        horizontalLayout_3->addLayout(verticalLayout);
+        horizontalLayout_4->addLayout(verticalLayout);
 
 
-        horizontalLayout_4->addLayout(horizontalLayout_3);
+        verticalLayout_2->addLayout(horizontalLayout_4);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 25));
+        menubar->setGeometry(QRect(0, 0, 800, 21));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName("menuFile");
         menuTools = new QMenu(menubar);
@@ -287,7 +372,14 @@ public:
         label_3->setText(QCoreApplication::translate("MainWindow", "Model", nullptr));
         labelP1->setText(QCoreApplication::translate("MainWindow", "Radius", nullptr));
         labelP2->setText(QCoreApplication::translate("MainWindow", "Height", nullptr));
-        label_6->setText(QCoreApplication::translate("MainWindow", "Visual Representation", nullptr));
+        toolSelect->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
+        toolPan->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
+        toolErase->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
+        toolLine->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
+        toolRect->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
+        toolCircleCenter->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
+        toolCircleCorner->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
+        toolPen->setText(QCoreApplication::translate("MainWindow", "...", nullptr));
         labelTool->setText(QCoreApplication::translate("MainWindow", "Tool: None", nullptr));
         drawStyleButton->setText(QCoreApplication::translate("MainWindow", "Style: Click", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
